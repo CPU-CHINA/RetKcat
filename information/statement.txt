@@ -1,0 +1,41 @@
+{'ret_layer': 3, 'out_layer': 3, 'gcn_layer': 2, 'heads': 4, 'hidden_dim': 64, 'ffn_size': 64, 'lr': 0.001, 'WD': 0.0005}
+net
+RetKcat(
+  (seq_ebd1): Embedding(9000, 32)
+  (seq_ebd2): Embedding(9000, 32)
+  (retnet): RetNet(
+    (retentions): ModuleList(
+      (0-2): 3 x MultiScaleRetention(
+        (group_norm): GroupNorm(4, 64, eps=1e-05, affine=True)
+        (retentions): ModuleList(
+          (0-3): 4 x SimpleRetention(
+            (xpos): XPOS()
+          )
+        )
+      )
+    )
+    (ffns): ModuleList(
+      (0-2): 3 x Sequential(
+        (0): Linear(in_features=64, out_features=64, bias=True)
+        (1): GELU(approximate='none')
+        (2): Linear(in_features=64, out_features=64, bias=True)
+      )
+    )
+    (layer_norms_1): ModuleList(
+      (0-2): 3 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+    )
+    (layer_norms_2): ModuleList(
+      (0-2): 3 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (mol_ebd): Embedding(4096, 64)
+  (act): LeakyReLU(negative_slope=0.01)
+  (GCN): ModuleList(
+    (0-1): 2 x GCN()
+  )
+  (out_Lrelu): LeakyReLU(negative_slope=0.01)
+  (out): ModuleList(
+    (0-2): 3 x Linear(in_features=64, out_features=64, bias=True)
+  )
+  (trans): Linear(in_features=64, out_features=1, bias=True)
+)
