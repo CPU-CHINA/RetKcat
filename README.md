@@ -1,16 +1,16 @@
-# RetKcat: A novel neural network for Kcat prediction  
+# RetKcat: A novel neural network for Kcat prediction
 
-## How can I start
+## How to start
 
 ### Requirements
 
-***freeze.yml*** and ***requirements.txt*** were provided in the folder "RetKcat",you can install the packages by running the following command in the folder you want to install ***RetKcat***.\
-the model was training on a RTX 3090 cost average 19 Gib memory also 16 Gib on a RTX 4090 , while predicting is avaliable on a RTX 3070Ti with 6Gib on average via pretrained model state provided by us.\
-Amount of evidences show that this model will have a better performance with higher hidden dimension ,which is 64 in our work due to the limit of GPU memory.
+***freeze.yml*** and ***requirements.txt*** were provided in the folder "RetKcat", you can install the packages by running the following command in the folder you want to install ***RetKcat***.
+The model was trained on a RTX 3090 costing average 19 Gib memory also 16 Gib on a RTX 4090, while predicting is available on a RTX 3070Ti with 6Gib on average via pretrained model state provided by us.
+Amount of evidence shows that this model will have a better performance with higher hidden dimension, which is 64 in our work due to the limit of GPU memory.
 
 ### Begin
 
-we recommend conda to construct a envroniment *(may need install some pakages which was provided by others )*
+We recommend conda to construct an environment *(may need install some packages which were provided by others)*
 
 ```cmd
 conda env create -f freeze.yml -n RetKcat
@@ -51,8 +51,17 @@ and run **predict.py** ,out file will appear in the current folder,a temporary f
 
 ## Introduction  
 
-The neural network can be divided into two parts: The first part utilizes a retentive network (RetNet) to extract protein features . This is achieved through a combination of causal masking and exponential decay along relative distances, which are combined into a single matrix. The second part employs graph convolutional networks (GCN) to capture substrate characteristics.\
+The neural network can be divided into two parts: The first part utilizes a retentive network (RetNet) to extract protein features . This is achieved through a combination of causal masking and exponential decay along relative distances, which are combined into a single matrix. The second part employs graph convolutional networks (GCN) to capture substrate characteristics.
+
 ![Construction](https://github.com/CPU-CHINA/RetKcat/blob/main/figure/construction.png)
+
+**(A) RetKcat learning performance analysis. The
+trained model is tested on the training set, and R-square is
+used to measure whether the model has correctly learned
+the training set. (B) NCS samples prediction test. On the test
+set derived from the experiment, by comparing RetKcat with
+the currently better DLKcat. (C) RetKcat schematic diagram.
+RetKcat is composed of two parts, GCN is used to read molecular information, and RetNet is used to read protein information.**
 
 ## Construction of RetKcat
 
