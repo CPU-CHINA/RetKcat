@@ -9,7 +9,7 @@ The model was trained on a RTX 3090 costing average 19 Gib memory also 16 Gib on
 Amount of evidence shows that this model will have a better performance with higher hidden dimension, which is 64 in our work due to the limit of GPU memory.
 
 ### Begin
-
+*！*first of all run process.py in child floder **bin**
 We recommend conda to construct an environment *(may need install some packages which were provided by others)*
 
 ```cmd
